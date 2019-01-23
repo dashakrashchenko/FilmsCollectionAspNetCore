@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewData["Title"] = "FilmmakersByGenre";
+}
+
+<h2>FilmmakersByGenre</h2>
+<div>
+    @foreach (var el in ViewBag.FilmmakersbyGenre)
+    {
+        <div>
+            <ol>
+                <li>@el.Firstname &emsp; @el.Lastname</li>
+            </ol>
+            <p>Country: @el.Country</p>
+            <p>Awards: @el.Awards</p>
+        </div>
+    }
+</div>
+
+
+
+
+
+

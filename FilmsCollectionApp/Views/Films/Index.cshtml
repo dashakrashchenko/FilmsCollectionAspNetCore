@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<form method="post">
+    <input type="text" placeholder="Enter" name="searchInput"/>
+    <select name="searchChoice" required>
+        <option disabled selected>Choose your search option</option>
+        <option value="filmname">Search by Filmname</option>
+        <option value="genre">Search by Genre</option>
+    </select>
+    <input type="submit" value="Search" onclick="location.href='@Url.Action("Index", "Films")'" />
+</form>
+<div>
+    <h4>Top 10 Best Films of All Times</h4>
+    <ol>
+        @foreach (var element in ViewBag.FilmsByImdb)
+        {
+
+            <li>@element.Filmname &emsp; @element.ImdbScore</li>
+
+        }
+    </ol>
+
+    <h4>Top 10 Newest Films</h4>
+    <ol>
+        @foreach (var element in ViewBag.NewFilms)
+        {
+
+            <li>@element.Filmname &emsp; @element.ImdbScore</li>
+
+        }
+    </ol>
+</div>

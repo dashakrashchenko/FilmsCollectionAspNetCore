@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+<div>
+    <form method="post">
+        <input type="text" placeholder="First name" name="firstName" />
+        <input type="text" placeholder="Last name" name="lastName" />
+        <input type="submit" value="Search" onclick="location.href='@Url.Action("Index", "Filmmakers")'" />
+
+    </form>
+</div>
+

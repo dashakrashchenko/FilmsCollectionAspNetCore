@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewData["Title"] = "AddToFavFilms";
+}
+
+<h2>Added to your favourite films</h2>
+
+<div style="align-items:center; display:flex;">
+    <input id="back_btn" type="image" src="~/icons/back_btn.png" onclick="location.href='@Url.Action("FilmInfo","Films", new { filmname = @ViewBag.currentfilm })'" />
+    <label for="back_btn">Go back</label>
+</div>

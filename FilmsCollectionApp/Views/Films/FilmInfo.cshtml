@@ -1,0 +1,66 @@
+﻿@model FilmsCollectionApp.Models.Films
+
+@{
+    ViewData["Title"] = "Film Info";
+}
+
+<link rel="stylesheet" href="~/js/JavaScript.js" />
+<div class="form-inline">
+    <div class="form-group">
+        <h2>@Model.Filmname</h2>
+    </div>
+    <div class="form-group">
+        <input type="image" src="~/icons/heart.png" onclick="location.href='@Url.Action("AddToFavFilms","FavouriteFilms", new { filmname= @Model.Filmname })'" />
+    </div>
+</div>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Filmname)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Filmname)
+        </dd>
+        <div style="display:inline;">
+            <dt>
+                <label>Filmmaker</label>
+            </dt>
+            <dd>
+                <p style="display:inline;" data-toggle="tooltip" data-placement="right" data-trigger="hover" data-html="true" data-delay='{"show":"0", "hide":"1000"}' data-title="Here is some more films by current filmmaker:<br> @foreach (var elem in @ViewBag.FilmsByThisFilmmaker) { <p>@elem.Filmname</p>} ">@ViewBag.FilmMaker.Firstname @ViewBag.FilmMaker.Lastname</p>
+            </dd>
+        </div>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Genre)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Genre)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Releasedate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Releasedate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Budget)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Budget)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ImdbScore)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ImdbScore)
+        </dd>
+    </dl>
+</div>
+
+<link rel="stylesheet" href="~/js/JavaScript.js" />
+@section scripts {
+
+    <script src="~/js/JavaScript.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/css/StyleSheet.css" />
+
+}

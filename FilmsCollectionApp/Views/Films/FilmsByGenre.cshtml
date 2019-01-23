@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewData["Title"] = "GetFilmsByGenre";
+}
+
+<h2>FilmsByGenre</h2>
+
+<div>
+    <ol>
+        @foreach (var el in ViewBag.FilmsbyGenre)
+        {
+            <li>@el.Filmname</li>
+
+            <div>
+                <p>Imdb Score: @el.ImdbScore</p>
+                <p>Release date: @el.Releasedate</p>
+            </div>
+        }
+    </ol>
+</div>

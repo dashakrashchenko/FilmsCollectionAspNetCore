@@ -1,1 +1,1 @@
-FilmsCollection Project
+FilmsCollection Project .Net Core

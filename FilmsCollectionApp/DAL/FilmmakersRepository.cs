@@ -1,0 +1,40 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Text;
+using FilmsCollectionApp.Models;
+
+namespace FilmsCollectionApp.DAL
+{
+    class FilmmakersRepository: Repository<Filmmakers>, IFilmmakersRepository
+    {
+        public FilmmakersRepository(FilmsCollectionDBContext db)
+        :base (db)
+        { }
+
+        public Filmmakers GetInfoAboutFilmmaker(string firstname, string lastname)
+        {
+
+            int id = FilmsCollectionDb.Filmmakers
+                 .Where(f => f.Lastname == lastname && f.Firstname == firstname)
+                 .Select(s => s.FilmMakerId)
+                 .First();
+
+            return FilmsCollectionDb.Filmmakers.Find(id);
+        }
+
+        public IEnumerable<Filmmakers> GetFilmmakerByGenre(string genre)
+        {
+            return FilmsCollectionDb.Filmmakers.Where(s => s.Genre == genre);
+        }
+
+        public IEnumerable<Filmmakers> GetFilmmakerbyAward(string award)
+        {
+            return FilmsCollectionDb.Filmmakers.Where(s => s.Awards == award);
+        }
+
+
+        public FilmsCollectionDBContext FilmsCollectionDb { get { return context as FilmsCollectionDBContext;} }
+    }
+}
